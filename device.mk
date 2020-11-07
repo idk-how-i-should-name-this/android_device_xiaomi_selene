@@ -180,6 +180,10 @@ PRODUCT_PACKAGES += \
 # Disable Configstore
 PRODUCT_PACKAGES += \
     disable_configstore
+
+# Disable RescueParty due to high risk of data loss
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.disable_rescue=true
     
 # Display
 PRODUCT_PACKAGES += \
