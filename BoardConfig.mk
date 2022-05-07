@@ -132,6 +132,9 @@ BOARD_MAIN_PARTITION_LIST := \
     system \
     vendor
 
+# HWUI
+HWUI_COMPILE_FOR_PERF := true
+
 # Wifi
 WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 
