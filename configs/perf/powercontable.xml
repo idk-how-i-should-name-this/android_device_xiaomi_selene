@@ -136,7 +136,7 @@
     <CMD name="PERF_RES_SCHED_UCLAMP_MIN_TA" id="0x01408300">
         <Entry path="/proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_uclamp_min"></Entry>
         <Compare>more</Compare>
-        <MaxValue>100</MaxValue>
+        <MaxValue>50</MaxValue>
         <MinValue>0</MinValue>
     </CMD>
     <CMD name="PERF_RES_FPS_EARA_BENCH" id="0x02028000">
