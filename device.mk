@@ -193,6 +193,9 @@ PRODUCT_PACKAGES += \
     libhwc2on1adapter \
     libhwc2onfbadapter
 
+PRODUCT_PACKAGES += \
+    libdng_sdk.vendor
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey \
