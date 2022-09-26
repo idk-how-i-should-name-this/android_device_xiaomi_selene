@@ -451,6 +451,9 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/mediatek
 
 # Overlays
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
+    $(LOCAL_PATH)/overlay-lineage
+
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay-lineage
 
