@@ -73,7 +73,6 @@ PRODUCT_PACKAGES += \
     libreverbwrapper \
     libvisualizer \
     libtinycompress \
-    libalsautils \
     libnbaio_mono \
     libaudiofoundation \
     libaudiofoundation.vendor 
