@@ -46,6 +46,10 @@ on init
     write /dev/cpuset/system-background/cpus 0-3
     write /dev/cpuset/top-app/cpus 0-7
 
+    # Workarround for cache
+    rm /data/resource-cache
+    rm /data/system/package_cache
+
 on late-init
     write /proc/bootprof "INIT:late-init"
     write /sys/kernel/rcu_expedited 1
