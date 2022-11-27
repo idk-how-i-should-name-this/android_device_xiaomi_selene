@@ -140,6 +140,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service.selene
 
+PRODUCT_PACKAGES += \
+    libvendor.goodix.hardware.biometrics.fingerprint@2.1.vendor
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth.a2dp@1.0 \
