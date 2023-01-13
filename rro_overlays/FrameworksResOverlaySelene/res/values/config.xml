@@ -632,4 +632,7 @@
     <!-- Control whether the always on display mode is enabled by default. This value will be used
          during initialization when the setting is still null. -->
     <bool name="config_dozeAlwaysOnEnabled">false</bool>
+
+    <!-- Fingerprint from stock ROM -->
+    <string name="config_stockFingerprint" translatable="false">Redmi/selene/selene:12/TP1A.220624.014/V14.0.4.0.TKUMIXM:user/release-keys</string>
 </resources>
