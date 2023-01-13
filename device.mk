@@ -31,6 +31,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # Inherit dalvik heap for 4GB RAM devices
 $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 
+# Copy Kernel
+KERNEL_IMAGE := $(KERNEL_PATH)/Image
+PRODUCT_COPY_FILES += $(KERNEL_IMAGE):kernel
+
+# Kernel Headers
+PRODUCT_VENDOR_KERNEL_HEADERS += $(KERNEL_PATH)/kernel-headers
+
 # Speed profile services and wifi-service to reduce RAM and storage.
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
 
