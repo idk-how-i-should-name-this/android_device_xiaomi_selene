@@ -1,4 +1,7 @@
 # Audio
+af.fast_track_multiplier=1 
+audio.adm.buffering.ms=3
+audio_hal.period_multiplier=2
 audio_para_version=J15S-Audiopara-V19-20200420
 ro.config.vc_call_vol_steps=9
 ro.audio.silent=0
@@ -10,6 +13,7 @@ ro.audio.resampler.psd.halflength=960
 ro.audio.resampler.psd.cutoff_percent=98
 ro.audio.resampler.psd.tbwcheat=0
 persist.bluetooth.sbc_hd_higher_bitrate=1
+vendor.audio.adm.buffering.ms=3
 
 # Brand
 Build.BRAND=MTK
