@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Build fingerprint from stock ROM -->
+	<string name="config_stockFingerprint" translatable="false">Redmi/selene/selene:12/TP1A.220624.014/V14.0.4.0.TKUMIXM:user/release-keys</string>
+</resources>
