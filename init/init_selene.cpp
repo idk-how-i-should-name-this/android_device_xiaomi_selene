@@ -27,28 +27,19 @@
    IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <stdlib.h>
-#include <fstream>
+#include <cstdlib>
 #include <string.h>
-#include <sys/sysinfo.h>
-#include <unistd.h>
+
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
-
+#include <sys/sysinfo.h>
 #include <android-base/properties.h>
+
 #include "property_service.h"
 #include "vendor_init.h"
 
 using android::base::GetProperty;
-using android::base::SetProperty;
 using std::string;
-
-char const *heapstartsize;
-char const *heapgrowthlimit;
-char const *heapsize;
-char const *heapminfree;
-char const *heapmaxfree;
-char const *heaptargetutilization;
 
 void property_override(string prop, string value)
 {
@@ -60,18 +51,55 @@ void property_override(string prop, string value)
         __system_property_add(prop.c_str(), prop.size(), value.c_str(), value.size());
 }
 
-void property_override_triple(char const product_prop[], char const system_prop[], char const vendor_prop[],
-    char const value[])
-{
-    property_override(product_prop, value);
-    property_override(system_prop, value);
-    property_override(vendor_prop, value);
+
+void set_ro_build_prop(const string &source, const string &prop,
+                       const string &value, bool product = false) {
+    string prop_name;
+
+    if (product)
+        prop_name = "ro.product." + source + prop;
+    else
+        prop_name = "ro." + source + "build." + prop;
+
+    property_override(prop_name.c_str(), value.c_str());
 }
 
-void check_device()
-{
-    struct sysinfo sys;
+void set_device_props(const string model, const string name, const string marketname,
+                      const string mod_device) {
+    // list of partitions to override props
+    string source_partitions[] = { "", "bootimage.", "odm.", "product.",
+                                   "system.", "system_ext.", "vendor." };
 
+    for (const string &source : source_partitions) {
+        set_ro_build_prop(source, "model", model, true);
+        set_ro_build_prop(source, "name", name, true);
+        set_ro_build_prop(source, "marketname", marketname, true);
+    }
+    property_override("ro.product.mod_device", mod_device.c_str());
+    property_override("bluetooth.device.default_name", marketname.c_str());
+    property_override("vendor.usb.product_string", marketname.c_str());
+}
+
+void vendor_load_properties()
+{
+    // detect device and configure properties
+    string hwsku = GetProperty("ro.boot.product.hardware.sku", "");
+
+    if (hwsku == "selene_s") { // Redmi 10 2022
+        set_device_props("21121119SG", "selene", "Redmi 10 2022", "selene");
+    } else if (hwsku == "selenes") { // Redmi Note 11 4G
+        set_device_props("21121119SC", "selene", "Redmi Note 11 4G", "selene");
+    } else if (hwsku == "selene_t") { // Redmi 10 Prime
+        set_device_props("21061119BI", "selene", "Redmi 10 Prime", "selene");
+    } else { // Redmi 10
+        set_device_props("21061119AG", "selene", "Redmi 10", "selene");
+    }
+
+    // dalvik heap configuration
+    string heapstartsize, heapgrowthlimit, heapsize, heapminfree,
+			heapmaxfree, heaptargetutilization;
+
+    struct sysinfo sys;
     sysinfo(&sys);
 
     if (sys.totalram > 5072ull * 1024 * 1024) {
@@ -99,40 +127,11 @@ void check_device()
         heapminfree = "512k";
         heapmaxfree = "8m";
     }
-}
 
-void vendor_load_properties()
-{
-    // dalvik
-    check_device();
     property_override("dalvik.vm.heapstartsize", heapstartsize);
     property_override("dalvik.vm.heapgrowthlimit", heapgrowthlimit);
     property_override("dalvik.vm.heapsize", heapsize);
     property_override("dalvik.vm.heaptargetutilization", heaptargetutilization);
     property_override("dalvik.vm.heapminfree", heapminfree);
     property_override("dalvik.vm.heapmaxfree", heapmaxfree);
-
-    string model;
-    string device;
-
-    string region = GetProperty("ro.boot.hwc", "");
-    string hwname = GetProperty("ro.boot.product.hardware.sku", "");
-    string brand  = "Redmi";
-
-    struct sysinfo sys;
-    sysinfo(&sys);
-    
-    if (hwname.rfind("selene", 0) == 0) {
-        model = "Redmi 10";
-        device = hwname.rfind("eos", 0) == 0 ? "eos" : "selene";
-    }
-    // Override all partitions' props
-    string prop_partitions[] = { "", "odm.", "product.", "system.", "system_ext.", "vendor." };
-    for (const string &prop : prop_partitions) {
-        property_override(string("ro.product.") + prop + string("brand"), brand);
-        property_override(string("ro.product.") + prop + string("device"), device);
-        property_override(string("ro.product.") + prop + string("model"), model);
-        property_override("ro.product.model", "Redmi 10");
-        property_override("ro.product.device", "selene");
-    }
 }
