@@ -1248,7 +1248,7 @@ on property:sys.boot_completed=1
     chmod 440 /proc/net/unix
 
     # Report max frequency to unity tasks and miHoYo games
-    write /proc/sys/kernel/sched_lib_name "com.miHoYo.,UnityMain,libunity.so" 
+    write /proc/sys/kernel/sched_lib_name "com.miHoYo.,libunity.so" 
     write /proc/sys/kernel/sched_lib_mask_force 255
 
     stop bootanim
