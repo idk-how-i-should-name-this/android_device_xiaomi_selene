@@ -371,6 +371,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     PowerOffAlarm
 
+# Properties
+-include $(LOCAL_PATH)/vendor_logtag.mk
+
 # Radio
 PRODUCT_PACKAGES += \
     android.hardware.broadcastradio@1.0 \
