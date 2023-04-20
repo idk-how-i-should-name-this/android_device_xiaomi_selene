@@ -493,11 +493,8 @@ PRODUCT_PACKAGES += \
     meta_init.rc \
     multi_init.rc \
     fstab.mt6768 \
+    fstab.mt6768.ramdisk \
     ueventd.mtk.rc
-
-# Fstab
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/rootdir/etc/fstab.mt6768:$(TARGET_COPY_OUT_RECOVERY)/root/first_stage_ramdisk/fstab.mt6768
 
 # IMS
 PRODUCT_COPY_FILES += \
