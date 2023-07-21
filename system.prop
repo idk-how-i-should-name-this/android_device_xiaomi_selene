@@ -47,6 +47,9 @@ vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.goog
 # Fingerprint
 sys.fp.miui.token=0
 
+# FS-verity
+ro.apk_verity.mode=2
+
 # FUSE passthrough
 persist.sys.fuse.passthrough.enable=true
 
