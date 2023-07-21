@@ -1338,7 +1338,6 @@ vendor/lib64/liblpcnr.so
 vendor/lib64/libmfllcore.so
 vendor/lib64/libmifpext.so
 vendor/lib64/libminiui.so
-vendor/lib64/libmisound.so
 vendor/lib64/libmi_asd.so
 vendor/lib64/libmi_bokehpre.so
 vendor/lib64/libmi_videofilter.so
