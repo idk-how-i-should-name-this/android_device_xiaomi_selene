@@ -8,8 +8,8 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common Arrow stuff
-$(call inherit-product, vendor/arrow/config/common.mk)
+# Inherit some common SkylineUI stuff.
+$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
 #
 # All components inherited here go to system_ext image
@@ -33,11 +33,12 @@ TARGET_INCLUDE_LIVE_WALLPAPERS := true
 TARGET_FACE_UNLOCK_SUPPORTED := true
 TARGET_INCLUDE_PIXEL_CHARGER := true
 
-DEVICE_MAINTAINER := fukiame
+# SkylineUI maintainer flags
+SKYLINEUI_MAINTAINER := @fukiame
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := selene
-PRODUCT_NAME := arrow_selene
+PRODUCT_NAME := aosp_selene
 PRODUCT_BRAND := Redmi
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_MODEL := Redmi 10
