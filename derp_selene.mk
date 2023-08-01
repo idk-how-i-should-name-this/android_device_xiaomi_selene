@@ -38,17 +38,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_system_ext.mk)
 
 # Some specific flags
 TARGET_BOOT_ANIMATION_RES := 1080
-TARGET_SUPPORTS_QUICK_TAP := true
-TARGET_INCLUDE_STOCK_ACORE := true
-TARGET_SUPPORTS_GOOGLE_RECORDER := true
-TARGET_INCLUDE_LIVE_WALLPAPERS := true
-TARGET_FACE_UNLOCK_SUPPORTED := true
-TARGET_INCLUDE_PIXEL_CHARGER := true
-
 USE_LEGACY_BOOTANIMATION := true
 TARGET_USES_BLUR := false
-
-DEVICE_MAINTAINER := fukiame
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := selene
