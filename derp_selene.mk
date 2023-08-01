@@ -45,6 +45,8 @@ TARGET_INCLUDE_LIVE_WALLPAPERS := true
 TARGET_FACE_UNLOCK_SUPPORTED := true
 TARGET_INCLUDE_PIXEL_CHARGER := true
 
+USE_LEGACY_BOOTANIMATION := true
+
 DEVICE_MAINTAINER := fukiame
 
 ## Device identifier. This must come after all inclusions
