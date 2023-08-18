@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-   $(LOCAL_DIR)/arrow_selene.mk
+   $(LOCAL_DIR)/leaf_selene.mk
 
 COMMON_LUNCH_CHOICES := \
-    arrow_selene-user \
-    arrow_selene-userdebug \
-    arrow_selene-eng
+    leaf_selene-user \
+    leaf_selene-userdebug \
+    leaf_selene-eng
