@@ -175,6 +175,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libcamera_metadata_shim
     
+# Certs
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,system/ca-certificates/files/,$(TARGET_COPY_OUT_VENDOR)/etc/security/cacerts)
+
 # Disable Configstore
 PRODUCT_PACKAGES += \
     disable_configstore
