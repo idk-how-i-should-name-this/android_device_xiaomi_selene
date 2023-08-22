@@ -518,6 +518,7 @@ persist.log.tag.RIL-SocListen=S
 persist.log.tag.RIL-Netlink=S
 persist.log.tag.MwiRIL=S
 persist.log.tag.PQ_DS=S
+persist.log.tag.PQ=S
 persist.log.tag.CarrierExpressServiceImpl=S
 persist.log.tag.CarrierExpressServiceImplExt=S
 persist.log.tag.PhoneConfigurationSettings=S
