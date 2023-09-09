@@ -124,8 +124,10 @@ void vendor_load_properties()
 
     if (hwname == "selene_s")
         model = "Redmi 10 2022";
-    else if (hwname == "selene_t")
+    else if (hwname == "selene_t") {
         model = "Redmi 10 Prime";
+        property_override("ro.vendor.power_profile.device", "prime");
+    }
     else if (hwname == "selenes")
         model = "Redmi Note 11 4G";
     else

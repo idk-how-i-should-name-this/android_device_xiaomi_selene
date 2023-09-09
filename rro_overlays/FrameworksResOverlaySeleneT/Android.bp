@@ -1,0 +1,5 @@
+runtime_resource_overlay {
+    name: "FrameworksResOverlaySeleneT",
+    sdk_version: "current",
+    vendor: true,
+}

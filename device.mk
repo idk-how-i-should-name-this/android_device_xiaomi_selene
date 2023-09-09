@@ -457,6 +457,7 @@ PRODUCT_PACKAGES += \
     CarrierConfigOverlaySelene \
     DialerOverlaySelene \
     FrameworksResOverlaySelene \
+    FrameworksResOverlaySeleneT \
     SettingsOverlaySelene \
     SettingsProviderOverlayRemi10 \
     SettingsProviderOverlayRemi10Prim \
