@@ -121,9 +121,17 @@ void vendor_load_properties()
 
     struct sysinfo sys;
     sysinfo(&sys);
+
+    if (hwname == "selene_s")
+        model = "Redmi 10 2022";
+    else if (hwname == "selene_t")
+        model = "Redmi 10 Prime";
+    else if (hwname == "selenes")
+        model = "Redmi Note 11 4G";
+    else
+        model = "Redmi 10";
     
     if (hwname.rfind("selene", 0) == 0) {
-        model = "Redmi 10";
         device = hwname.rfind("eos", 0) == 0 ? "eos" : "selene";
     }
     // Override all partitions' props
@@ -132,7 +140,6 @@ void vendor_load_properties()
         property_override(string("ro.product.") + prop + string("brand"), brand);
         property_override(string("ro.product.") + prop + string("device"), device);
         property_override(string("ro.product.") + prop + string("model"), model);
-        property_override("ro.product.model", "Redmi 10");
         property_override("ro.product.device", "selene");
     }
 }
