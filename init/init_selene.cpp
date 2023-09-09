@@ -115,7 +115,7 @@ void vendor_load_properties()
     string model;
     string device;
 
-    string region = GetProperty("ro.boot.hwc", "");
+    //string region = GetProperty("ro.boot.hwc", "");
     string hwname = GetProperty("ro.boot.product.hardware.sku", "");
     string brand  = "Redmi";
 
@@ -134,12 +134,14 @@ void vendor_load_properties()
     if (hwname.rfind("selene", 0) == 0) {
         device = hwname.rfind("eos", 0) == 0 ? "eos" : "selene";
     }
+
+    property_override("ro.vendor.device", model);
+
     // Override all partitions' props
     string prop_partitions[] = { "", "odm.", "product.", "system.", "system_ext.", "vendor." };
     for (const string &prop : prop_partitions) {
         property_override(string("ro.product.") + prop + string("brand"), brand);
         property_override(string("ro.product.") + prop + string("device"), device);
         property_override(string("ro.product.") + prop + string("model"), model);
-        property_override("ro.product.device", "selene");
     }
 }

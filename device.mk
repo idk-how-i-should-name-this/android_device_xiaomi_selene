@@ -458,6 +458,10 @@ PRODUCT_PACKAGES += \
     DialerOverlaySelene \
     FrameworksResOverlaySelene \
     SettingsOverlaySelene \
+    SettingsProviderOverlayRemi10 \
+    SettingsProviderOverlayRemi10Prim \
+    SettingsProviderOverlayRemi102022 \
+    SettingsProviderOverlayRemiNot114G \
     SystemUIOverlaySelene \
     TelephonyOverlaySelene \
     TetheringConfigOverlay \
