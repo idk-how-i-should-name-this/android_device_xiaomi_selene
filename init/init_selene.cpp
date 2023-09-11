@@ -114,6 +114,7 @@ void vendor_load_properties()
 
     string model;
     string device;
+    string marketname;
 
     //string region = GetProperty("ro.boot.hwc", "");
     string hwname = GetProperty("ro.boot.product.hardware.sku", "");
@@ -122,22 +123,29 @@ void vendor_load_properties()
     struct sysinfo sys;
     sysinfo(&sys);
 
-    if (hwname == "selene_s")
-        model = "Redmi 10 2022";
+    if (hwname == "selene_s") {
+        model = "21121119SG";
+        marketname = "Redmi 10 2022";
+    }
     else if (hwname == "selene_t") {
-        model = "Redmi 10 Prime";
+        model = "21061119BI";
+        marketname = "Redmi 10 Prime";
         property_override("ro.vendor.power_profile.device", "prime");
     }
-    else if (hwname == "selenes")
-        model = "Redmi Note 11 4G";
-    else
-        model = "Redmi 10";
+    else if (hwname == "selenes") {
+        model = "21121119SC";
+        marketname = "Redmi Note 11 4G";
+    }
+    else {
+        model = "21061119AG";
+        marketname = "Redmi 10";
+    }
     
     if (hwname.rfind("selene", 0) == 0) {
         device = hwname.rfind("eos", 0) == 0 ? "eos" : "selene";
     }
 
-    property_override("ro.vendor.device", model);
+    property_override("ro.vendor.device", marketname);
 
     // Override all partitions' props
     string prop_partitions[] = { "", "odm.", "product.", "system.", "system_ext.", "vendor." };
@@ -145,5 +153,6 @@ void vendor_load_properties()
         property_override(string("ro.product.") + prop + string("brand"), brand);
         property_override(string("ro.product.") + prop + string("device"), device);
         property_override(string("ro.product.") + prop + string("model"), model);
+        property_override(string("ro.product.") + prop + string("marketname"), marketname);
     }
 }
