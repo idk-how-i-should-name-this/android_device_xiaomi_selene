@@ -183,9 +183,6 @@ BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX_LOCATION := 3
 # Vibrator
 TARGET_VIBRATOR_SUPPORTS_EFFECTS := true
 
-# VNDK
-BOARD_VNDK_VERSION := current
-
 # Non-SAR on Android 10 means the presence of stage-1 ramdisk
 TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_PRODUCT := product
