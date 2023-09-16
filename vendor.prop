@@ -253,6 +253,7 @@ persist.sys.sf.native_mode=2
 ro.config.avoid_gfx_accel=true
 ro.surface_flinger.primary_display_orientation=ORIENTATION_0
 ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
+service.sf.prime_shader_cache=0
 
 # Suspend
 suspend.short_suspend_threshold_millis=2000
