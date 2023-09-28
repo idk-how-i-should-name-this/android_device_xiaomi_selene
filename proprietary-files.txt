@@ -235,7 +235,6 @@ vendor/firmware/aw87xxx_vmax_1.bin
 vendor/firmware/awinic_params.bin
 vendor/firmware/BT_FW.cfg
 vendor/firmware/fm_cust_j19.cfg
-vendor/firmware/focaltech_ts_fw_.bin
 vendor/firmware/focaltech_mp_fw_huaxing.ini
 vendor/firmware/focaltech_ts_fw_huaxing.bin
 vendor/firmware/focaltech_ts_fw_xinli.bin

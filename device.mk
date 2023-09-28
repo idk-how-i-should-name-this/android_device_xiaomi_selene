@@ -524,7 +524,6 @@ PRODUCT_PACKAGES += \
 RECOVERY_TS_FW_PATH := vendor/xiaomi/selene/proprietary/vendor/firmware
 
 PRODUCT_COPY_FILES += \
-    $(RECOVERY_TS_FW_PATH)/focaltech_ts_fw_.bin:recovery/root/vendor/firmware/focaltech_ts_fw_.bin \
     $(RECOVERY_TS_FW_PATH)/focaltech_mp_fw_huaxing.ini:recovery/root/vendor/firmware/focaltech_mp_fw_huaxing.ini \
     $(RECOVERY_TS_FW_PATH)/focaltech_ts_fw_huaxing.bin:recovery/root/vendor/firmware/focaltech_ts_fw_huaxing.bin \
     $(RECOVERY_TS_FW_PATH)/nvt_dj_72d_fw.bin:recovery/root/vendor/firmware/nvt_dj_72d_fw.bin \
