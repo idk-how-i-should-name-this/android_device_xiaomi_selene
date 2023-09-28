@@ -20,6 +20,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_system_ext.mk)
 # Inherit from selene device makefile
 $(call inherit-product, device/xiaomi/selene/device.mk)
 
+# Boot animation
+TARGET_SCREEN_WIDTH := 1080
+TARGET_SCREEN_HEIGHT := 2400
+
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := selene
 PRODUCT_NAME := halcyon_selene
