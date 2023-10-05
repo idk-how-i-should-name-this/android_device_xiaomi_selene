@@ -11,19 +11,17 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from device makefile
 $(call inherit-product, device/xiaomi/selene/device.mk)
 
-# Inherit some common Arrow stuff
-$(call inherit-product, vendor/arrow/config/common.mk)
+# Inherit some common Lineage stuff
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Boot animation
 TARGET_SCREEN_WIDTH := 1080
 TARGET_SCREEN_HEIGHT := 2400
 TARGET_BOOT_ANIMATION_RES := 1080
 
-DEVICE_MAINTAINER := fukiame
-
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := selene
-PRODUCT_NAME := arrow_selene
+PRODUCT_NAME := lineage_selene
 PRODUCT_BRAND := Redmi
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_MODEL := Redmi 10
