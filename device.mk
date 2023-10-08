@@ -601,7 +601,7 @@ PRODUCT_PACKAGES += \
     libkeystore-engine-wifi-hidl
 
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service-lazy.selene
+    android.hardware.wifi-service
 
 PRODUCT_PACKAGES += \
     hpstapd \
