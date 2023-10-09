@@ -496,7 +496,7 @@ PRODUCT_PACKAGES += \
     meta_init.rc \
     multi_init.rc \
     fstab.mt6768 \
-    fstab.mt6785.ramdisk \
+    fstab.mt6768.ramdisk \
     ueventd.mtk.rc
 
 # Keylayout
