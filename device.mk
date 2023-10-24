@@ -419,7 +419,7 @@ PRODUCT_COPY_FILES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    libsensorndkbridge \
+    libsensorndkbridge_mtk \
     android.hardware.sensors@2.0 \
     android.hardware.sensors@2.0.vendor
 

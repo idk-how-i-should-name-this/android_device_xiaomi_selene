@@ -82,7 +82,6 @@ vendor/lib64/libcam.halsensor.so
 vendor/lib64/libcam.iopipe.so
 vendor/lib64/libcam.lcs.so
 vendor/lib64/libcam.pdtblgen.so
-vendor/lib64/libcam.utils.sensorprovider.so
 vendor/lib64/libcam.vhdr.so
 vendor/lib64/libcam3a_imem.so
 vendor/lib64/libcamalgo.3dnr.so
@@ -619,6 +618,11 @@ vendor/lib64/vendor.mediatek.hardware.wifi.supplicant@2.0.so
 vendor/lib64/vendor.mediatek.hardware.wifi.supplicant@2.1.so
 vendor/lib64/vendor.mediatek.hardware.wifi.supplicant@2.2.so
 
+# a14 compat - libsensorndkbridge fix
+vendor/lib/libaalservice.so
+vendor/lib64/libaalservice.so
+vendor/lib64/libcam.utils.sensorprovider.so
+
 # NFC
 vendor/etc/libese-nxp.conf
 vendor/etc/libnfc-nci.conf
@@ -939,7 +943,6 @@ vendor/lib/AVCSecureVdecCA.so
 vendor/lib/hw/awinic.audio.effect.so
 vendor/lib/hw/dfps.mt6768.so
 vendor/lib/hw/kmsetkey.beanpod.so
-vendor/lib/libaalservice.so
 vendor/lib/libaal_cust.so
 vendor/lib/libaal_key.so
 vendor/lib/libaal_mtk.so
@@ -1097,7 +1100,6 @@ vendor/lib64/lib3a.gma.so
 vendor/lib64/lib3a.lce.so
 vendor/lib64/lib3a.log.so
 vendor/lib64/lib3a.n3d3a.so
-vendor/lib64/libaalservice.so
 vendor/lib64/libaal_cust.so
 vendor/lib64/libaal_key.so
 vendor/lib64/libaal_mtk.so
