@@ -59,9 +59,6 @@ function blob_fixup {
         vendor/bin/hw/android.hardware.keymaster@4.0-service.beanpod)
             "${PATCHELF}" --add-needed "libshim_beanpod.so" "${2}"
             ;;
-        lib/libshowlogo.so)
-            "${PATCHELF}" --add-needed "libshim_showlogo.so" "${2}"
-            ;;
         vendor/lib64/hw/android.hardware.camera.provider@2.6-impl-mediatek.so)
             grep -q "libcamera_metadata_shim.so" "${2}" || "${PATCHELF}" --add-needed "libcamera_metadata_shim.so" "${2}"
             ;;
