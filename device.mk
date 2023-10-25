@@ -178,6 +178,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,system/ca-certificates/files/,$(TARGET_COPY_OUT_VENDOR)/etc/security/cacerts)
 
+# Charger
+PRODUCT_PACKAGES += \
+    charger_res_images_vendor
+
 # Disable Configstore
 PRODUCT_PACKAGES += \
     disable_configstore
