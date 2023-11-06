@@ -200,16 +200,10 @@ PRODUCT_PACKAGES += \
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl:64 \
-    android.hardware.drm@1.0-service-lazy \
-    android.hardware.drm@1.4-service.clearkey \
-    android.hardware.drm@1.0 \
+    android.hardware.drm-service.clearkey \
     android.hardware.drm@1.0.vendor \
-    android.hardware.drm@1.1 \
     android.hardware.drm@1.1.vendor \
-    android.hardware.drm@1.2 \
     android.hardware.drm@1.2.vendor \
-    android.hardware.drm@1.3 \
     android.hardware.drm@1.3.vendor
     
 # DT2W
