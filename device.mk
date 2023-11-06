@@ -622,6 +622,7 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi@1.4.vendor \
     android.hardware.wifi.supplicant@1.3 \
     android.hardware.wifi.supplicant@1.3.vendor \
+    android.hardware.wifi.supplicant@1.4.vendor \
     android.hardware.wifi.hostapd@1.0 \
     android.hardware.wifi.hostapd@1.0.vendor \
     android.hardware.wifi.hostapd@1.1 \
