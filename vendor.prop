@@ -256,6 +256,11 @@ ro.config.avoid_gfx_accel=true
 ro.surface_flinger.primary_display_orientation=ORIENTATION_0
 ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
 
+# Suspend
+suspend.short_suspend_threshold_millis=2000
+suspend.short_suspend_backoff_enabled=true
+suspend.max_sleep_time_millis=40000
+
 # TEE
 ro.hardware.kmsetkey=beanpod
 ro.hardware.gatekeeper=beanpod
