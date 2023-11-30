@@ -428,6 +428,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libshim_vtservice \
     libshim_beanpod \
+    libshim_sensors \
     libpiex_shim
 
 # Thermal

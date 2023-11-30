@@ -779,7 +779,7 @@ vendor/bin/meta_tst
 vendor/bin/mmc_ffu
 vendor/bin/mmc_ffu_hynix
 vendor/bin/mmc_ffu_micron
-vendor/bin/mnld
+vendor/bin/mnld|01ae207d89a3478e65302c912b5c942c030f8b53
 vendor/bin/mrdump_tool
 vendor/bin/mtk_agpsd
 vendor/bin/mtk_pkm_service
