@@ -28,6 +28,9 @@ PRODUCT_MODEL := Redmi 10
 PRODUCT_SYSTEM_NAME := selene
 PRODUCT_SYSTEM_DEVICE := selene
 
+# AfterLife flags
+AFTERLIFE_MAINTAINER := fukiame
+
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 TARGET_VENDOR := xiaomi
 TARGET_VENDOR_PRODUCT_NAME := selene
