@@ -216,6 +216,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     FMRadio
 
+# Frame rate override
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.surface_flinger.enable_frame_rate_override=false
+
 # Gatekeeper
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service \
