@@ -110,8 +110,6 @@ on charger
     start mi_thermald
 
 on fs
-    start vendor.boot-hal-1-2
-
     # mount fstab
     write /proc/bootprof "INIT:Mount_START"
     write /sys/kernel/tracing/trace_marker "B|1|Mount"
@@ -166,7 +164,6 @@ on late-fs
     exec_start wait_for_keymaster
     setprop init.userspace_reboot.userdata_remount.timeoutmillis 10000
     mount_all /vendor/etc/fstab.mt6768 --late
-    exec /system/bin/tune2fs -O has_journal -u 10010 -r 4096 /dev/block/platform/bootdevice/by-name/userdata
 
 on post-fs-data
     write /proc/bootprof "INIT:post-fs-data"
