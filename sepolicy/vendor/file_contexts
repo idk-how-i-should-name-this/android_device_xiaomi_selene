@@ -5,6 +5,9 @@
 # Camera
 /mnt/vendor/persist/camera(/.*)?                                                                        u:object_r:persist_camera_data_file:s0
 
+# DT2W Script
+/vendor/bin/dt2w_event  										u:object_r:dt2w_event_exec:s0
+
 # Fingerprint
 /mnt/vendor/persist/goodix(/.*)? 									u:object_r:vendor_fingerprint_data_file:s0
 /mnt/vendor/persist/fpc(/.*)?    									u:object_r:vendor_fingerprint_data_file:s0
@@ -19,6 +22,11 @@
 
 # Lights
 /(vendor|system/vendor)/bin/hw/android\.hardware\.light-service\.selene                          	u:object_r:hal_light_default_exec:s0
+
+# Memtrack
+/sys/devices/platform/[0-9].+mali/dma_buf_gpu_mem                                         u:object_r:sysfs_gpu:s0
+/sys/devices/platform/[0-9].+mali/kprcs                                                   u:object_r:sysfs_gpu:s0
+/sys/devices/platform/[0-9].+mali/total_gpu_mem                                           u:object_r:sysfs_gpu:s0
 
 # NFC
 /dev/nq-nci  												u:object_r:nfc_device:s0
