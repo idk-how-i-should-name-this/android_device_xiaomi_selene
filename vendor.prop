@@ -63,9 +63,6 @@ ro.incremental.enable=yes
 # Media
 debug.stagefright.ccodec=0
 
-# MIUI
-sys.fp.miui.token=0
-
 # Radio
 persist.sys.radio.force_lte_ca=true
 persist.radio.multisim.config=dsds

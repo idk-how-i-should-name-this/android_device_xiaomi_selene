@@ -14,7 +14,6 @@ persist.camera.module.                                  u:object_r:vendor_mtk_ca
 # Fingerprint
 persist.vendor.sys.fp.                                  u:object_r:vendor_fingerprint_prop:s0
 vendor.fps_hal.                                         u:object_r:vendor_fingerprint_prop:s0
-sys.fp.miui.token                                       u:object_r:exported_system_prop:s0
 
 # Thermal
 vendor.sys.thermal.     				u:object_r:vendor_thermal_engine_prop:s0
