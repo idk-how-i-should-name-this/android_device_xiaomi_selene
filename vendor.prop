@@ -46,6 +46,9 @@ persist.vendor.max.brightness=462
 ro.vendor.colorpick_adjust=true
 ro.vendor.cabc.enable=true
 
+# Graphics
+debug.renderengine.backend=gles
+
 # IMS
 ro.vendor.md_auto_setup_ims=1
 persist.vendor.ims_support=1
