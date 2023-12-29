@@ -38,16 +38,16 @@ function blob_fixup {
         vendor/lib64/libwifi-hal-mtk.so)
             "${PATCHELF}" --set-soname "libwifi-hal-mtk.so" "${2}"
             ;;
-       vendor/bin/hw/android.hardware.thermal@2.0-service.mtk)
+        vendor/bin/hw/android.hardware.thermal@2.0-service.mtk)
             "${PATCHELF}" --replace-needed "libutils.so" "libutils-v32.so" "${2}"
             ;;
 	vendor/lib64/libmi_watermark.so)
             "${PATCHELF}" --add-needed "libpiex_shim.so" "${2}"
             ;;
-       vendor/bin/hw/vendor.mediatek.hardware.mtkpower@1.0-service)
+        vendor/bin/hw/vendor.mediatek.hardware.mtkpower@1.0-service)
             "${PATCHELF}" --replace-needed "android.hardware.power-V1-ndk_platform.so" "android.hardware.power-V1-ndk.so" "${2}"
             ;;
-       vendor/lib*/hw/dfps.mt6768.so)
+        vendor/lib*/hw/dfps.mt6768.so)
             "${PATCHELF}" --replace-needed "libutils.so" "libutils-v32.so" "${2}"
             ;;
         vendor/lib*/hw/vendor.mediatek.hardware.pq@2.6-impl.so)
@@ -56,16 +56,16 @@ function blob_fixup {
         vendor/lib64/libmtkcam_stdutils.so)
             "${PATCHELF}" --replace-needed "libutils.so" "libutils-v32.so" "${2}"
             ;;
-       vendor/bin/hw/android.hardware.keymaster@4.0-service.beanpod)
+        vendor/bin/hw/android.hardware.keymaster@4.0-service.beanpod)
             "${PATCHELF}" --add-needed "libshim_beanpod.so" "${2}"
             ;;
-       lib/libshowlogo.so)
+        lib/libshowlogo.so)
             "${PATCHELF}" --add-needed "libshim_showlogo.so" "${2}"
             ;;
-       vendor/lib64/hw/android.hardware.camera.provider@2.6-impl-mediatek.so)
+        vendor/lib64/hw/android.hardware.camera.provider@2.6-impl-mediatek.so)
             grep -q "libcamera_metadata_shim.so" "${2}" || "${PATCHELF}" --add-needed "libcamera_metadata_shim.so" "${2}"
             ;;
-       vendor/lib64/libmtkcam_featurepolicy.so)
+        vendor/lib64/libmtkcam_featurepolicy.so)
             # evaluateCaptureConfiguration()
             xxd -p "${2}" | sed "s/90b0034e88740b9/90b003428028052/g" | xxd -r -p > "${2}".patched
             mv "${2}".patched "${2}"
