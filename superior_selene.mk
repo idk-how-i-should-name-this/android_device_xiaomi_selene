@@ -11,8 +11,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from device makefile
 $(call inherit-product, device/xiaomi/selene/device.mk)
 
-# Inherit some common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common Superior stuff
+$(call inherit-product, vendor/superior/config/common.mk)
 
 # Boot animation
 TARGET_SCREEN_WIDTH := 1080
