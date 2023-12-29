@@ -1,3 +1,6 @@
+# Apex
+ro.apex.updatable=true
+
 # Bluetooth
 bluetooth.device.class_of_device=90,2,12
 bluetooth.hci.erroneous_data_reporting.enabled=false
