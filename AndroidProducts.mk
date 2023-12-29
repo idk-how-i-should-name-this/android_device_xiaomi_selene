@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-   $(LOCAL_DIR)/kenvyra_selene.mk
+   $(LOCAL_DIR)/lineage_selene.mk
 
 COMMON_LUNCH_CHOICES := \
-    kenvyra_selene-user \
-    kenvyra_selene-userdebug \
-    kenvyra_selene-eng
+    lineage_selene-user \
+    lineage_selene-userdebug \
+    lineage_selene-eng
