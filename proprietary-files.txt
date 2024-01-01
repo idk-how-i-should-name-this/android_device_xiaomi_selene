@@ -652,12 +652,10 @@ vendor/etc/init/vendor.microtrust.hardware.soter@1.0-service.rc
 vendor/lib64/vendor.microtrust.hardware.soter@1.0.so
 
 # Thermal
-vendor/bin/hw/android.hardware.thermal@2.0-service.mtk
 vendor/bin/mi_thermald
 vendor/bin/thermal
 vendor/bin/thermalloadalgod
 vendor/bin/thermal_manager
-vendor/etc/init/android.hardware.thermal@2.0-service.mtk.rc
 vendor/etc/init/init.thermal.rc
 vendor/etc/init/init.thermalloadalgod.rc
 vendor/etc/init/init.thermal_manager.rc
@@ -681,14 +679,6 @@ vendor/etc/thermal-video.conf
 vendor/etc/thermal-youtube.conf
 vendor/etc/thermald-devices.conf
 vendor/lib/libthermalalgo.so
-vendor/lib/hw/android.hardware.thermal@2.0-impl.so
-vendor/lib64/hw/android.hardware.thermal@2.0-impl.so
-
-# Thermal-Hardware
-vendor/lib/hw/thermal.mt6768.so
-vendor/lib64/hw/thermal.mt6768.so
-
-# Time
 
 # UDF - from from selene-user 12 SP1A.210812.016 V13.0.8.0.SKUMIXM release-keys
 vendor/lib/libudf.so|7cdbb5c5c616dbbec6afcd75d5cc41f915ff82d6
