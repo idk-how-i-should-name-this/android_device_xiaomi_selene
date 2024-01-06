@@ -209,5 +209,5 @@ ODM_MANIFEST_EOS_FILES := $(DEVICE_PATH)/manifest_eos.xml
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
-# Security patch date
-VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
+# Vendor security patch date
+VENDOR_SECURITY_PATCH := 2022-10-01
