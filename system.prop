@@ -12,6 +12,9 @@ Build.BRAND=MTK
 # Cached app compaction
 persist.device_config.activity_manager.use_compaction=true
 
+# Charger
+ro.charger.enable_suspend=true
+
 # Dalvik & Dex
 dalvik.vm.dex2oat-cpu-set=0,1,2,3,4,5
 dalvik.vm.dex2oat-threads=6
