@@ -181,10 +181,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     disable_configstore
     
-# Lineage Health
-PRODUCT_PACKAGES += \
-    vendor.lineage.health-service.default
-
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-resources \
