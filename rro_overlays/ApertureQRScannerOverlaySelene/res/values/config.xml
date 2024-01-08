@@ -23,6 +23,6 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Default component for QR code scanner -->
-    <string name="config_defaultQrCodeComponent">org.lineageos.aperture/.QrScannerActivity</string>
+    <string name="config_defaultQrCodeComponent">org.leafos.aperture/.QrScannerActivity</string>
 
 </resources>
