@@ -373,10 +373,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
 
-# PowerOffAlarm
-PRODUCT_PACKAGES += \
-    PowerOffAlarm
-
 # Properties
 -include $(LOCAL_PATH)/vendor_logtag.mk
 
