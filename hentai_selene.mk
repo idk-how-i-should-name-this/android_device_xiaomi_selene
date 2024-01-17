@@ -5,23 +5,44 @@
 #
 
 # Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+
+#
+# All components inherited here go to system image
+#
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/mainline_system.mk)
+
+#
+# All components inherited here go to system_ext image
+#
+$(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_system_ext.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_system_ext.mk)
+
+#
+# All components inherited here go to product image
+#
+$(call inherit-product, vendor/hentai/build/product/hentai_product.mk)
+
+#
+# All components inherited here go to vendor image
+#
+$(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_vendor.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_vendor.mk)
 
 # Inherit from device makefile
 $(call inherit-product, device/xiaomi/selene/device.mk)
-
-# Inherit some common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Boot animation
 TARGET_SCREEN_WIDTH := 1080
 TARGET_SCREEN_HEIGHT := 2400
 TARGET_BOOT_ANIMATION_RES := 1080
 
+WITH_GMS := true
+
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := selene
-PRODUCT_NAME := lineage_selene
+PRODUCT_NAME := hentai_selene
 PRODUCT_BRAND := Redmi
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_MODEL := Redmi 10

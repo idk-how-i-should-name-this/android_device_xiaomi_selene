@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-   $(LOCAL_DIR)/lineage_selene.mk
+   $(LOCAL_DIR)/hentai_selene.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_selene-user \
-    lineage_selene-userdebug \
-    lineage_selene-eng
+    hentai_selene-user \
+    hentai_selene-userdebug \
+    hentai_selene-eng
