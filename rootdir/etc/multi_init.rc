@@ -32,5 +32,4 @@ import /vendor/etc/init/android.hardware.light@2.0-service-mediatek-lazy.rc
 import /vendor/etc/init/lights-mtk-default.rc
 import /vendor/etc/init/merged_hal_service.rc
 import /vendor/etc/init/vendor.microtrust.hardware.capi@2.0-service.rc
-import /vendor/etc/init/spm_script.rc
 import /vendor/etc/init/nvram_daemon.rc
