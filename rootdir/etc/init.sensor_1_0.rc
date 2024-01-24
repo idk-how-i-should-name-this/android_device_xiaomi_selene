@@ -1,9 +1,6 @@
-# MTK platform .rc configure
 on post-fs-data
-    # calibration
     mkdir /data/vendor/sensor 0774 system system
-    # Sensor
-    chmod 0660 /dev/hwmsensor
+
     chmod 0660 /dev/msensor
     chmod 0666 /dev/gsensor
     chmod 0666 /dev/als_ps
@@ -27,10 +24,9 @@ on post-fs-data
     chmod 0660 /dev/biometric
     chmod 0660 /dev/sensorlist
 
-    chown system system /dev/hwmsensor
+    chown radio system /dev/als_ps
     chown system system /dev/msensor
     chown system system /dev/gsensor
-    chown radio system /dev/als_ps
     chown system system /dev/gyroscope
     chown system system /dev/aal_als
     chown system system /dev/humidity

@@ -11,10 +11,10 @@ on init
     restorecon_recursive /mnt/rescue
 
 on post-fs-data
-mkdir /data/vendor/nfc 0770 nfc nfc
-mkdir /data/vendor/secure_element 0770 nfc nfc
+    mkdir /data/vendor/nfc 0770 nfc nfc
+    mkdir /data/vendor/secure_element 0770 nfc nfc
 
-#Camera
+    #Camera
     chmod 0660 /dev/MAINAF
     chown system camera /dev/MAINAF
 
@@ -36,13 +36,10 @@ mkdir /data/vendor/secure_element 0770 nfc nfc
     chmod 0660 /dev/BU64745GWZAF
     chown system camera /dev/BU64745GWZAF
 
-#SMB
-    chown system system /proc/smb/ScreenComm
-    chmod 0660 /proc/smb/ScreenComm
-
     chmod 0660 /dev/spm
     chown system system /dev/spm
-#dual calib
+
+    #dual calib
     chmod 0777 /mnt/vendor/persist/camera/rear_dc_cal_wd.bin
     chmod 0777 /mnt/vendor/persist/camera/rear_dc_cal_wu.bin
     chmod 0777 /data/vendor/camera/rear_dc_cal_wd.bin
@@ -51,7 +48,7 @@ mkdir /data/vendor/secure_element 0770 nfc nfc
     restorecon /mnt/vendor/persist/camera/rear_dc_cal_wd.bin
     restorecon /mnt/vendor/persist/camera/rear_dc_cal_wu.bin
 
-#XIAOMI_AI_ASD
+    #XIAOMI_AI_ASD
     mkdir /data/misc/camera 0777 system camera
     mkdir /data/vendor/camera 0777 system camera
     chmod 0660 /dev/nq-nci
@@ -59,11 +56,6 @@ mkdir /data/vendor/secure_element 0770 nfc nfc
     chmod 0660 /dev/p73
     chown nfc nfc /dev/p73
 
-# for intsense_k19a bokeh use
-    chown system system /data/vendor/camera/com.xiaomi.dcal.wd.data
-    chown system system /data/vendor/camera/com.xiaomi.dcal.wu.data
-    chmod 0777 /data/vendor/camera/com.xiaomi.dcal.wd.data
-    chmod 0777 /data/vendor/camera/com.xiaomi.dcal.wu.data
     mkdir /data/vendor/camera/model 0777 system camera
     mkdir /data/vendor/camera/model/dof_model 0777 system camera
     mkdir /data/vendor/camera/model/rt_model 0777 system camera
@@ -80,10 +72,9 @@ mkdir /data/vendor/secure_element 0770 nfc nfc
     chmod 0666 /data/vendor/camera/model/rt_model/preview_model
     chmod 0666 /data/vendor/camera/model/rt_model/preview_policy
 
-#XIAOMI_WATERMARK
     mkdir /vendor/etc/camera 0777 system camera
 
-#dual calib
+    #dual calib
     #K19A code to modify calib by lienci at 2021/5/25 start
     mkdir /mnt/vendor/persist 0777 system camera
     mkdir /mnt/vendor/persist/camera 0777 system camera
@@ -105,39 +96,31 @@ mkdir /data/vendor/secure_element 0770 nfc nfc
     chmod 0444  /sys/class/sensor/architecture
     chmod 0666  /dev/sar
     #modify sar Authority  by luozeng at 2021.3.30 end
+
 on init
-    # Refer to http://source.android.com/devices/tech/storage/index.html
-    # It said, "Starting in Android 4.4, multiple external storage devices are surfaced to developers through
-    #           Context.getExternalFilesDirs(), Context.getExternalCacheDirs(), and Context.getObbDirs().
-    #           External storage devices surfaced through these APIs must be a semi-permanent part of the device (such as an SD card slot in a battery compartment).
-    #           Developers expect data stored in these locations to be available over long periods of time."
-    # Therefore, if the target doesn't support sd hot-plugging (Ex: the SD card slot in a battery compartment), we need to export SECONDARY_STORAGE in 'boot' section
-    #
-    # export SECONDARY_STORAGE /storage/sdcard1
 
 service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
     class late_start
     disabled
 
 service mmc_ffu /vendor/bin/mmc_ffu do /vendor/bin/KMDD60018M-B320_P09.bin /dev/block/mmcblk0 15 09 02
-	class main
-	user root
-	group system
-	oneshot
+    class main
+    user root
+    group system
+    oneshot
 
 service mmc_ffu_hynix /vendor/bin/mmc_ffu_hynix do /vendor/bin/H9HP16AECMMDAR-KMM_P08.bin /dev/block/mmcblk0 90 38303030 35303030
-	class main
-	user root
-	group system
-	oneshot
+    class main
+    user root
+    group system
+    oneshot
 
 service mmc_ffu_micron /vendor/bin/mmc_ffu_micron do /vendor/bin/FFU_M5_11.BIN /dev/block/mmcblk0 13 00000005 00000004
-	class main
-	user root
-	group system
-	oneshot
+    class main
+    user root
+    group system
+    oneshot
 
-# for bokeh control
 on property:vendor.camera.bokeh.disable=1
     setprop vendor.camera.bokeh 1
 
@@ -148,7 +131,6 @@ on boot
     setprop vendor.debug.camera.enableMetaPending 0
     setprop vendor.debug.camera.enableMetaMerge 0
     
-#finggerprint
     chown system system /dev/goodix_fp
     chmod 0644 /dev/goodix_fp
     chown system system /sys/bus/platform/devices/fingerprint/clk_enable
