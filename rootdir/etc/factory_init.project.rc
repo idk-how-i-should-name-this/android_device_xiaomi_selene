@@ -30,13 +30,6 @@ on post-fs
     chmod 0660 /dev/spm
     chown system system /dev/spm
 
-on boot
-
-service spm_script /vendor/bin/spm_loader
-    user system
-    group system
-    oneshot
-
 on property:sys.usb.config=gs1gs3
       write /sys/class/android_usb/android0/enable 0
       write /sys/class/android_usb/android0/idVendor ${sys.usb.vid}
