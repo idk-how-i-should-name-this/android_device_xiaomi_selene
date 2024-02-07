@@ -194,6 +194,30 @@ on post-fs-data
     chmod 0771 /mnt/vendor/nvdata
     mkdir /mnt/vendor/nvdata/media 0771 media audio
 
+    # AudioDump
+    mkdir /data/vendor/audiohal
+    mkdir /data/vendor/audiohal/audio_param
+
+    #Create cct mount point
+    mkdir /mnt/vendor/cct
+    chown root system /mnt/vendor/cct
+    chmod 0771 /mnt/vendor/cct
+
+    #Create flash folder
+    mkdir /data/vendor/flash
+    chown root system /data/vendor/flash
+    chmod 0771 /data/vendor/flash
+
+    #Create shading mount point
+    mkdir /data/vendor/shading
+    chown root system /data/vendor/shading
+    chmod 0771 /data/vendor/shading
+
+    #Create shading_otp mount point
+    mkdir /data/vendor/shading_otp
+    chown root system /data/vendor/shading_otp
+    chmod 0771 /data/vendor/shading_otp
+
     #Create NDD mount point
     mkdir /data/vendor/camera_dump
     chown root system /data/vendor/camera_dump
