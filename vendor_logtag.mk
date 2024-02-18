@@ -1,7 +1,9 @@
 ifeq (eng,$(TARGET_BUILD_VARIANT))
 VENDOR_LOG_LEVEL=I
+WIDE_LOG_LEVEL=D
 else
 VENDOR_LOG_LEVEL=S
+WIDE_LOG_LEVEL=I
 endif
 
 PRODUCT_VENDOR_PROPERTIES += \
@@ -293,3 +295,6 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.log.tag.netd=$(VENDOR_LOG_LEVEL) \
     persist.log.tag.thermal_repeater=$(VENDOR_LOG_LEVEL) \
     persist.log.tag.wpfa_iptable_android=$(VENDOR_LOG_LEVEL)
+
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.log.tag=$(WIDE_LOG_LEVEL)
