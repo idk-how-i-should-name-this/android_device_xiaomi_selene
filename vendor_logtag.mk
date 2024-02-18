@@ -8,6 +8,7 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.log.tag.APM-SessionN=$(VENDOR_LOG_LEVEL) \
     persist.log.tag.APM-Subscriber=$(VENDOR_LOG_LEVEL) \
     persist.log.tag.AT=$(VENDOR_LOG_LEVEL) \
+    persist.log.tag.Accelerometer=$(VENDOR_LOG_LEVEL) \
     persist.log.tag.AdnRecord=$(VENDOR_LOG_LEVEL) \
     persist.log.tag.AdnRecordCache=$(VENDOR_LOG_LEVEL) \
     persist.log.tag.AdnRecordLoader=$(VENDOR_LOG_LEVEL) \
