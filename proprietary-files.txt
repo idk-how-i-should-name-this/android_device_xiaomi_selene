@@ -143,38 +143,6 @@ vendor/lib64/libarcsoft_supernight.so
 # Camera-bin
 vendor/bin/hw/camerahalserver
 
-# Camera-configs
-vendor/etc/camera/CFR_para_UW.bin
-vendor/etc/camera/com.xiaomi.dcal.wd.golden
-vendor/etc/camera/com.xiaomi.dcal.wu.golden
-vendor/etc/camera/fonts.xml
-vendor/etc/camera/golden_rear_dc_cal_wd.bin
-vendor/etc/camera/hdrcheckerparamsettings.yml
-vendor/etc/camera/LDC_packdata_xiaomi_K10_Sunny_3280x2464_v1_20210121.dat
-vendor/etc/camera/libalfpc_tuning_20181222.bin
-vendor/etc/camera/MILanPro_Regular.ttf
-vendor/etc/camera/Miui-Light.ttf
-vendor/etc/camera/MIUI_Time.ttf
-vendor/etc/camera/model/bokeh_model/cache_data
-vendor/etc/camera/model/bokeh_model/model_mdl_cache
-vendor/etc/camera/model/bokeh_model/segment_model
-vendor/etc/camera/model/dof_model/capture_cache
-vendor/etc/camera/model/dof_model/capture_model
-vendor/etc/camera/model/dof_model/capture_policy
-vendor/etc/camera/model/rt_model/mask/cache_data
-vendor/etc/camera/model/rt_model/mask/model_mdl_cache
-vendor/etc/camera/model/rt_model/mask/segment_model
-vendor/etc/camera/model/rt_model/preview_cache
-vendor/etc/camera/model/rt_model/preview_model
-vendor/etc/camera/model/rt_model/preview_policy
-vendor/etc/camera/model/rt_model/score/cache_data
-vendor/etc/camera/model/rt_model/score/model_mdl_cache
-vendor/etc/camera/model/rt_model/score/segment_model
-vendor/etc/camera/Roboto-Thin.ttf
-vendor/etc/camera/Roboto_Medium.ttf
-vendor/etc/camera/sr_params.xml
-vendor/etc/camera/watermark_font_2300_3199.dat
-
 # Camera Utils - from selene-user 13 TP1A.220624.014 V14.0.2.0.TKUCNXM release-keys
 vendor/lib64/libmtkcam_stdutils.so|7e16c7954c2496e79be45e22de4e0653b1961828
 
