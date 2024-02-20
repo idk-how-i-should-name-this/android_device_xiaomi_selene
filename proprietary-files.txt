@@ -1,3 +1,5 @@
+# unpinned blobs from selene-user 11 RP1A.200720.011 V12.5.26.0.RKUEUXM release-keys
+
 # Audio
 vendor/lib/libaudiocompensationfilterc.so
 vendor/lib/libaudiocompensationfilter_vendor.so
