@@ -665,18 +665,6 @@ vendor/lib/libwpa_client.so
 -vendor/lib64/libwifi-hal.so:vendor/lib64/libwifi-hal-mtk.so
 vendor/lib64/libwpa_client.so
 
-# Xiaomi
-vendor/bin/hw/vendor.xiaomi.hardware.touchfeature@1.0-service
-vendor/etc/init/vendor.xiaomi.hardware.touchfeature@1.0-service.rc
-vendor/lib/vendor.xiaomi.hardware.mtdservice@1.0.so
-vendor/lib/vendor.xiaomi.hardware.touchfeature@1.0.so
-vendor/lib/hw/vendor.xiaomi.hardware.touchfeature@1.0-impl.so
-vendor/lib64/vendor.xiaomi.hardware.mtdservice@1.0.so
-vendor/lib64/vendor.xiaomi.hardware.mtdservice@1.1.so
-vendor/lib64/vendor.xiaomi.hardware.mtdservice@1.2.so
-vendor/lib64/hw/vendor.xiaomi.hardware.touchfeature@1.0-impl.so
-vendor/lib64/vendor.xiaomi.hardware.touchfeature@1.0.so
-
 # Misc
 vendor/bin/atcid
 vendor/bin/audiocmdservice_atci
