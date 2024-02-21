@@ -459,7 +459,6 @@ vendor/bin/hw/vendor.mediatek.hardware.gpu@1.0-service
 vendor/bin/hw/vendor.mediatek.hardware.mms@1.5-service
 vendor/bin/hw/vendor.mediatek.hardware.mtkcodecservice@1.1-service
 vendor/bin/hw/vendor.mediatek.hardware.nvram@1.1-service
-vendor/bin/hw/vendor.mediatek.hardware.nwk_opt@1.0-service
 vendor/bin/hw/vendor.mediatek.hardware.pq@2.2-service
 vendor/etc/init/android.hardware.sensors@2.0-service-mediatek.rc
 vendor/etc/init/vendor.mediatek.hardware.dfps@1.0-service.rc
@@ -467,7 +466,6 @@ vendor/etc/init/vendor.mediatek.hardware.gpu@1.0-service.rc
 vendor/etc/init/vendor.mediatek.hardware.mms@1.5-service.rc
 vendor/etc/init/vendor.mediatek.hardware.mtkcodecservice@1.1-service.rc
 vendor/etc/init/vendor.mediatek.hardware.nvram@1.1-sevice.rc
-vendor/etc/init/vendor.mediatek.hardware.nwk_opt@1.0-service.rc
 vendor/etc/init/vendor.mediatek.hardware.pq@2.2-service.rc
 vendor/lib/hw/vendor.mediatek.hardware.dfps@1.0-impl.so
 vendor/lib/hw/vendor.mediatek.hardware.mms@1.5-impl.so
@@ -504,7 +502,6 @@ vendor/lib/vendor.mediatek.hardware.mtkcodecservice@1.1.so
 vendor/lib/vendor.mediatek.hardware.netdagent@1.0.so
 vendor/lib/vendor.mediatek.hardware.nvram@1.0.so
 vendor/lib/vendor.mediatek.hardware.nvram@1.1.so
-vendor/lib/vendor.mediatek.hardware.nwk_opt@1.0.so
 vendor/lib/vendor.mediatek.hardware.pq@2.0.so
 vendor/lib/vendor.mediatek.hardware.pq@2.1.so
 vendor/lib/vendor.mediatek.hardware.pq@2.2.so
@@ -622,7 +619,6 @@ vendor/lib64/vendor.mediatek.hardware.mtkradioex@2.0.so
 vendor/lib64/vendor.mediatek.hardware.netdagent@1.0.so
 vendor/lib64/vendor.mediatek.hardware.nvram@1.0.so
 vendor/lib64/vendor.mediatek.hardware.nvram@1.1.so
-vendor/lib64/vendor.mediatek.hardware.nwk_opt@1.0.so
 vendor/lib64/vendor.mediatek.hardware.power@1.1.so
 vendor/lib64/vendor.mediatek.hardware.power@2.0.so
 vendor/lib64/vendor.mediatek.hardware.pq@2.0.so
@@ -980,7 +976,6 @@ vendor/lib/libnvram.so
 vendor/lib/libnvram_daemon_callback.so
 vendor/lib/libnvram_platform.so
 vendor/lib/libnvram_sec.so
-vendor/lib/libnwk_opt_halwrap_vendor.so
 vendor/lib/libopus.so
 vendor/lib/libpixelflinger.so
 vendor/lib/libpkm.so
@@ -1134,7 +1129,6 @@ vendor/lib64/libnvram.so
 vendor/lib64/libnvram_daemon_callback.so
 vendor/lib64/libnvram_platform.so
 vendor/lib64/libnvram_sec.so
-vendor/lib64/libnwk_opt_halwrap_vendor.so
 vendor/lib64/libpixelflinger.so
 vendor/lib64/libpkm.so
 vendor/lib64/libpq_cust.so
@@ -1177,7 +1171,6 @@ vendor/lib64/lib_bsscore.so
 vendor/lib64/lib_iir.so
 vendor/lib64/lib_speech_enh.so
 vendor/lib64/lib_sr_models.so
-vendor/lib64/nwk_opt_imp.so
 vendor/lib64/wechat.beanpod.so
 vendor/thh/ta/020b0000000000000000000000000000.ta
 vendor/thh/ta/020f0000000000000000000000000000.ta
