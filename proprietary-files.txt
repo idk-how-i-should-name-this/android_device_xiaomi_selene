@@ -458,7 +458,6 @@ vendor/lib64/libwlservice.so|5e44d3cd4f5d0912e4829444af58d7bff51fc43a
 
 # Mediatek
 vendor/bin/hw/android.hardware.sensors@2.0-service-mediatek
-vendor/bin/hw/vendor.mediatek.hardware.dfps@1.0-service
 vendor/bin/hw/vendor.mediatek.hardware.gpu@1.0-service
 -vendor/etc/vintf/manifest/android.hardware.gpu@1.0-service.xml:vendor/etc/vintf/manifest/manifest_android.hardware.gpu@1.0-service.xml
 vendor/bin/hw/vendor.mediatek.hardware.mms@1.5-service
@@ -466,13 +465,11 @@ vendor/bin/hw/vendor.mediatek.hardware.mtkcodecservice@1.1-service
 vendor/bin/hw/vendor.mediatek.hardware.nvram@1.1-service
 vendor/bin/hw/vendor.mediatek.hardware.pq@2.2-service
 vendor/etc/init/android.hardware.sensors@2.0-service-mediatek.rc
-vendor/etc/init/vendor.mediatek.hardware.dfps@1.0-service.rc
 vendor/etc/init/vendor.mediatek.hardware.gpu@1.0-service.rc
 vendor/etc/init/vendor.mediatek.hardware.mms@1.5-service.rc
 vendor/etc/init/vendor.mediatek.hardware.mtkcodecservice@1.1-service.rc
 vendor/etc/init/vendor.mediatek.hardware.nvram@1.1-sevice.rc
 vendor/etc/init/vendor.mediatek.hardware.pq@2.2-service.rc
-vendor/lib/hw/vendor.mediatek.hardware.dfps@1.0-impl.so
 vendor/lib/hw/vendor.mediatek.hardware.mms@1.5-impl.so
 vendor/lib/hw/vendor.mediatek.hardware.mtkcodecservice@1.1-impl.so
 vendor/lib/hw/vendor.mediatek.hardware.nvram@1.1-impl.so
@@ -494,7 +491,6 @@ vendor/lib/libMtkSpeechEnh.so
 vendor/lib/libmtksysutils.so
 vendor/lib/libmtk_drvb.so
 vendor/lib/vendor.mediatek.hardware.apmonitor@2.0.so
-vendor/lib/vendor.mediatek.hardware.dfps@1.0.so
 vendor/lib/vendor.mediatek.hardware.gpu@1.0.so
 vendor/lib/vendor.mediatek.hardware.mdmonitor@1.0.so
 vendor/lib/vendor.mediatek.hardware.mms@1.0.so
@@ -514,7 +510,6 @@ vendor/lib/vendor.mediatek.hardware.pq@2.3.so
 vendor/lib/vendor.mediatek.hardware.pq@2.4.so
 vendor/lib/vendor.mediatek.hardware.pq@2.5.so
 vendor/lib/vendor.mediatek.hardware.pq@2.6.so
-vendor/lib64/hw/vendor.mediatek.hardware.dfps@1.0-impl.so
 vendor/lib64/hw/vendor.mediatek.hardware.mms@1.5-impl.so
 vendor/lib64/hw/vendor.mediatek.hardware.mtkcodecservice@1.1-impl.so
 vendor/lib64/hw/vendor.mediatek.hardware.nvram@1.1-impl.so
@@ -601,7 +596,6 @@ vendor/lib64/libmtk_drvb.so
 vendor/lib64/mtkcam/libmtkcam_streaminfo_plugin-p1stt.so
 vendor/lib64/vendor.mediatek.hardware.apmonitor@2.0.so
 vendor/lib64/vendor.mediatek.hardware.atci@1.0.so
-vendor/lib64/vendor.mediatek.hardware.dfps@1.0.so
 vendor/lib64/vendor.mediatek.hardware.dmc@1.0.so
 vendor/lib64/vendor.mediatek.hardware.dmc@1.1.so
 vendor/lib64/vendor.mediatek.hardware.dmc@1.2.so
@@ -910,7 +904,6 @@ vendor/etc/virtual-spn-conf-by-imsi.xml
 vendor/lib/arm.graphics-V1-ndk_platform.so
 vendor/lib/AVCSecureVdecCA.so
 vendor/lib/hw/awinic.audio.effect.so
-vendor/lib/hw/dfps.mt6768.so
 vendor/lib/libaalservice.so
 vendor/lib/libaal_cust.so
 vendor/lib/libaal_key.so
@@ -1025,7 +1018,6 @@ vendor/lib/lib_iir.so
 vendor/lib/lib_speech_enh.so
 vendor/lib64/arm.graphics-V1-ndk_platform.so
 vendor/lib64/AVCSecureVdecCA.so
-vendor/lib64/hw/dfps.mt6768.so
 vendor/lib64/lbs_hidl_service-impl.so
 vendor/lib64/lib3a.ae.core.so
 vendor/lib64/lib3a.ae.so
