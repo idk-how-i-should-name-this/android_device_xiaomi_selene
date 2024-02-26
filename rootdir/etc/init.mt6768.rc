@@ -877,6 +877,9 @@ on property:sys.boot_completed=1
     # Enable suspend to RAM
     write /sys/power/mem_sleep "deep"
 
+    # STOP EATING MY BATTERY AFTER 100H OF UPTIME FUCK YOU
+    stop statsd
+
 service vendor.charger /system/bin/charger
     class charger
     user system
