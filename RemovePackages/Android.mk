@@ -8,6 +8,7 @@ LOCAL_OVERRIDES_PACKAGES := \
     Drive \
     Maps \
     PrebuiltGmail \
+    Updater \
     YouTube
 LOCAL_UNINSTALLABLE_MODULE := true
 LOCAL_CERTIFICATE := PRESIGNED
