@@ -699,7 +699,6 @@ vendor/lib64/libudf.so|66324571c3f69057b250bce3b0d58c386da0c25b
 # WiFi
 vendor/etc/init/android.hardware.wifi.supplicant-service.rc
 vendor/bin/hw/wpa_supplicant
-vendor/bin/wpa_cli
 vendor/lib/libwpa_client.so
 -vendor/lib64/libwifi-hal.so:vendor/lib64/libwifi-hal-mtk.so
 vendor/lib64/libwpa_client.so
@@ -710,16 +709,8 @@ vendor/bin/bp_kmsetkey_ca
 vendor/bin/ccci_fsd
 vendor/bin/ccci_mdinit
 vendor/bin/ccci_rpcd
-vendor/bin/charon
-vendor/bin/dconfig
-vendor/bin/dexecutor
 vendor/bin/dmc_core
-vendor/bin/doeapp-memtester
-vendor/bin/doeapp-sat
-vendor/bin/dtc_vendor
 vendor/bin/epdg_wod
-vendor/bin/factory
-vendor/bin/factory_bin
 vendor/bin/FFU_FW_HW_M.1.B.BIN
 vendor/bin/FFU_M5_11.BIN
 vendor/bin/fuelgauged
@@ -743,23 +734,12 @@ vendor/bin/mmc_ffu
 vendor/bin/mmc_ffu_hynix
 vendor/bin/mmc_ffu_micron
 vendor/bin/mnld|01ae207d89a3478e65302c912b5c942c030f8b53
-vendor/bin/mrdump_tool
 vendor/bin/mtk_agpsd
 vendor/bin/mtk_pkm_service
 vendor/bin/muxreport
 vendor/bin/netdagent
 vendor/bin/netdc
-vendor/bin/nusensors
-vendor/bin/nusensors_new
 vendor/bin/nvram_daemon
-vendor/bin/panelcolor_bin
-vendor/bin/pnscr
-vendor/bin/recordevent
-vendor/bin/replayevent
-vendor/bin/rttv
-vendor/bin/starter
-vendor/bin/stp_dump3
-vendor/bin/stroke
 vendor/bin/teei_daemon
 vendor/bin/Vincent_V4_MLC_64GB_Bridge_P08.bin
 vendor/bin/Vincent_V4_MLC_64GB_P02_Gen.bin
@@ -776,7 +756,6 @@ vendor/bin/wfca
 vendor/bin/wlan_assistant
 vendor/bin/wmt_launcher
 vendor/bin/wmt_loader
-vendor/data/misc/ProjectConfig.mk
 vendor/etc/apdb/APDB_MT6768_S01__W2110
 vendor/etc/apdb/APDB_MT6768_S01__W2110_ENUM
 vendor/etc/Conf_MultipleTest.ini
@@ -839,9 +818,6 @@ vendor/etc/init/muxreport.rc
 vendor/etc/init/netdagent.rc
 vendor/etc/init/networksetting.rc
 vendor/etc/init/nvram_daemon.rc
-vendor/etc/init/panelcolor.rc
-vendor/etc/init/sar.rc
-vendor/etc/init/vendor_flash_recovery.rc
 vendor/etc/init/vpud.rc
 vendor/etc/init/wlan_assistant.rc
 vendor/etc/ipsec/ipsec.conf
@@ -1042,7 +1018,6 @@ vendor/lib64/libcapctrl.so
 vendor/lib64/libcares_naptr.so
 vendor/lib64/libcarrierconfig.so
 vendor/lib64/libccci_util.so
-vendor/lib64/libcharon-ss.so
 vendor/lib64/libcheckpid.so
 vendor/lib64/libcrypto-mdapp.so
 vendor/lib64/libcurl-md.so
