@@ -887,7 +887,6 @@ vendor/lib/libcapctrl.so
 vendor/lib/libcares_naptr.so
 vendor/lib/libcarrierconfig.so
 vendor/lib/libccci_util.so
-vendor/lib/libcheckpid.so
 vendor/lib/libcrypto-mdapp.so
 vendor/lib/libcurl-md.so
 vendor/lib/libcurl_xcap_md.so
@@ -924,7 +923,6 @@ vendor/lib/libjpeg-alpha-oal_vendor.so
 vendor/lib/libjpeg-alpha_vendor.so
 vendor/lib/libJpgEncPipe.so
 vendor/lib/libladder.so
-vendor/lib/liblogwrap_vendor.so
 vendor/lib/libmifpext.so
 vendor/lib/libminiui.so
 vendor/lib/libmnetlink_v104.so
@@ -1020,7 +1018,6 @@ vendor/lib64/libcapctrl.so
 vendor/lib64/libcares_naptr.so
 vendor/lib64/libcarrierconfig.so
 vendor/lib64/libccci_util.so
-vendor/lib64/libcheckpid.so
 vendor/lib64/libcrypto-mdapp.so
 vendor/lib64/libcurl-md.so
 vendor/lib64/libcurl_xcap_md.so
@@ -1068,7 +1065,6 @@ vendor/lib64/libjpeg-alpha_vendor.so
 vendor/lib64/libJpgEncPipe.so
 vendor/lib64/libksensor.so
 vendor/lib64/libladder.so
-vendor/lib64/liblogwrap_vendor.so
 vendor/lib64/liblpcnr.so
 vendor/lib64/libmfllcore.so
 vendor/lib64/libmifpext.so
