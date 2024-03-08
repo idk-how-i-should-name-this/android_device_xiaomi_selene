@@ -133,6 +133,9 @@ BOARD_MAIN_PARTITION_LIST := \
     system \
     vendor
 
+# Graphics
+TARGET_DISABLE_POSTRENDER_CLEANUP := true
+
 # HWUI
 HWUI_COMPILE_FOR_PERF := true
 
