@@ -14,6 +14,9 @@ $(call inherit-product, device/xiaomi/selene/device.mk)
 # Inherit some common Miku UI stuff
 $(call inherit-product, vendor/miku/build/product/miku_product.mk)
 
+# Maintainer
+MIKU_MASTER := fukiame
+
 # Boot animation
 TARGET_SCREEN_WIDTH := 1080
 TARGET_SCREEN_HEIGHT := 2400
