@@ -207,10 +207,6 @@ PRODUCT_PACKAGES += \
     
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/dt2w/dt2w_event:$(TARGET_COPY_OUT_VENDOR)/bin/dt2w_event
-    
-# FM Radio
-PRODUCT_PACKAGES += \
-    FMRadio
 
 # Frame rate override
 PRODUCT_PROPERTY_OVERRIDES += \
