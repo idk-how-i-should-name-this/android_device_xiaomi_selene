@@ -107,8 +107,6 @@ on charger
     chown system system /sys/devices/platform/1100a000.spi0/spi_master/spi0/spi0.0/fts_rw_reg
     chmod 0660 /sys/devices/platform/1100a000.spi0/spi_master/spi0/spi0.0/fts_rw_reg
 
-    start mi_thermald
-
 on fs
     # mount fstab
     write /proc/bootprof "INIT:Mount_START"
@@ -826,11 +824,6 @@ service maxcurrentIncall /system/vendor/bin/factory_bin m 1
     user root
     oneshot
     disabled
-
-service mi_thermald /vendor/bin/mi_thermald
-    class main
-    user root
-    group system
 
 service charger /bin/charger
     class charger
