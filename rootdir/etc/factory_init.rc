@@ -353,7 +353,6 @@ on fs
 
 #INTERNAL_START
     write /proc/bootprof "INIT:Mount_START"
-    start vendor.boot-hal-1-2
     mount_all /vendor/etc/fstab.mt6768 --early
     write /proc/bootprof "INIT:Mount_END"
 #INTERNAL_END
@@ -363,7 +362,6 @@ on post-fs
     start logd
     start light-default
     start system_suspend
-    start vendor.boot-hal-1-2
     start merged_hal_service
     start capi-2-0
     start power-hal-1-0
