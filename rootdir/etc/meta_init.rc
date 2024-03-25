@@ -342,7 +342,6 @@ on fs
     write /proc/bootprof "INIT:fs"
 #INTERNAL_START
     write /proc/bootprof "INIT:Mount_START"
-    start vendor.boot-hal-1-1
     mount_all /vendor/etc/fstab.mt6768 --early
     write /proc/bootprof "INIT:Mount_END"
 #INTERNAL_END
@@ -353,7 +352,6 @@ on post-fs
     start keyinstall-1-0
     start light-hal-2-0
     start system_suspend
-    start vendor.boot-hal-1-1
     start merged_hal_service
     # Once everything is setup, no need to modify /.
     # The bind+ro combination avoids modifying any other mount flags.
