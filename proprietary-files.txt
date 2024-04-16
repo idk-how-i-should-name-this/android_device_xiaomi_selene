@@ -701,9 +701,7 @@ vendor/lib/libudf.so|7cdbb5c5c616dbbec6afcd75d5cc41f915ff82d6
 vendor/lib64/libudf.so|66324571c3f69057b250bce3b0d58c386da0c25b
 
 # WiFi
-vendor/lib/libwpa_client.so
 -vendor/lib64/libwifi-hal.so:vendor/lib64/libwifi-hal-mtk.so
-vendor/lib64/libwpa_client.so
 
 # Misc
 vendor/bin/bip
