@@ -36,7 +36,7 @@ LOCAL_SHARED_LIBRARIES := \
     libwifi-hal-mtk \
     libwifi-system-iface \
     libxml2 \
-    android.hardware.wifi-V2-ndk
+    android.hardware.wifi-V1-ndk
 
 LOCAL_STATIC_LIBRARIES := android.hardware.wifi-service-lib
 
