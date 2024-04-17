@@ -1,4 +1,3 @@
-# MTK platform .rc configure
 on post-fs-data
     # calibration
     mkdir /data/vendor/sensor 0774 system system
@@ -101,8 +100,8 @@ on post-fs-data
     chmod 0660 /sys/class/sensor/m_ps_misc/psbatch
     chmod 0660 /sys/class/sensor/m_ps_misc/psflush
     chmod 0660 /sys/class/sensor/m_ps_misc/pscali
-	chmod 0777 /sys/class/sensor/m_ps_misc/update_cali_data
-	chmod 0660 /sys/class/sensor/m_ps_misc/pscali_sec
+    chmod 0777 /sys/class/sensor/m_ps_misc/update_cali_data
+    chmod 0660 /sys/class/sensor/m_ps_misc/pscali_sec
     chown system system /sys/class/sensor/m_als_misc/alsactive
     chown system system /sys/class/sensor/m_als_misc/alsdelay
     chown system system /sys/class/sensor/m_als_misc/alsbatch
@@ -114,8 +113,8 @@ on post-fs-data
     chown system system /sys/class/sensor/m_ps_misc/psbatch
     chown system system /sys/class/sensor/m_ps_misc/psflush
     chown system system /sys/class/sensor/m_ps_misc/pscali
-	chown system system /sys/class/sensor/m_ps_misc/update_cali_data
-	chown system system /sys/class/sensor/m_ps_misc/pscali_sec
+    chown system system /sys/class/sensor/m_ps_misc/update_cali_data
+    chown system system /sys/class/sensor/m_ps_misc/pscali_sec
 
     chmod 0660 /sys/class/sensor/m_baro_misc/baroenablenodata
     chmod 0660 /sys/class/sensor/m_baro_misc/baroactive

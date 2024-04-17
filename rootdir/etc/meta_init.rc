@@ -6,16 +6,11 @@
 import /system/etc/init/hw/vendor_init_as_system.rc
 import /init.environ.rc
 import /system/etc/init/update_verifier.rc
-import /vendor/etc/init/android.hardware.boot@1.1-service.rc
-import /vendor/etc/init/android.hardware.boot@1.1-service-lazy.rc
 import /vendor/etc/init/trustonic.rc
 import vendor/etc/init/hw/meta_init.connectivity.rc
 import /vendor/etc/init/hw/meta_init.project.rc
 import /vendor/etc/init/microtrust.rc
-#copy from system/etc for APEX
 import /system/etc/init/apexd.rc
-import /system/etc/init/art_apex_boot_integrity.rc
-
 import /system/etc/init/vold.rc
 import /system/etc/init/servicemanager.rc
 import /system/etc/init/hwservicemanager.rc
@@ -25,16 +20,10 @@ import /vendor/etc/init/android.hardware.keymaster@4.0-service.beanpod.rc
 import /vendor/etc/init/microtrust.bp_kmsetkey_ca.rc
 import /vendor/etc/init/vendor.microtrust.hardware.thh@2.0-service.rc
 import /vendor/etc/init/microtrust.init_thh.rc
-##microtrust end
 import vendor/etc/init/hw/multi_init.rc
-
-#Make sure meta_init.modem.rc is the last rc file.
 import vendor/etc/init/hw/meta_init.modem.rc
 
-
 on early-init
-    write /proc/bootprof "INIT:early-init"
-
     # Set init and its forked children's oom_adj.
     write /proc/1/oom_score_adj -1000
 
@@ -46,7 +35,6 @@ on early-init
 
     # Set the security context of /postinstall if present.
     restorecon /postinstall
-
 
     # Set up linker config subdirectories based on mount namespaces
     mkdir /linkerconfig/bootstrap 0755
@@ -63,27 +51,17 @@ on early-init
 
     start ueventd
 
-
     # Run apexd-bootstrap so that APEXes that provide critical libraries
     # become available. Note that this is executed as exec_start to ensure that
     # the libraries are available to the processes started after this statement.
     exec_start apexd-bootstrap
 
-#INTERNAL_START
-    mount debugfs debugfs /sys/kernel/debug
-    chmod 0755 /sys/kernel/debug
-#INTERNAL_END
-
 on init
-    write /proc/bootprof "INIT:init"
-
     sysclktz 0
 
     # Mix device-specific information into the entropy pool
     copy /proc/cmdline /dev/urandom
     copy /default.prop /dev/urandom
-
-    write /proc/bootprof "INIT: on init start"
 
     # Backward compatibility.
     symlink /system/bin /bin
@@ -94,18 +72,6 @@ on init
 
     # Link /vendor to /system/vendor for devices without a vendor partition.
     symlink /system/vendor /vendor
-
-# Temp Backward compatibility
-    symlink /dev/block/platform/bootdevice/by-name/boot /dev/bootimg
-    symlink /dev/block/platform/bootdevice/by-name/recovery /dev/recovery
-    symlink /dev/block/platform/bootdevice/by-name/secro  /dev/sec_ro
-    symlink /dev/block/platform/bootdevice/by-name/kb /dev/kb
-    symlink /dev/block/platform/bootdevice/by-name/dkb /dev/dkb
-    symlink /dev/block/platform/bootdevice/by-name/seccfg /dev/seccfg
-    symlink /dev/block/platform/bootdevice/by-name/proinfo /dev/pro_info
-    symlink /dev/block/platform/bootdevice/by-name/nvram /dev/nvram
-    symlink /dev/block/platform/bootdevice/by-name/para /dev/misc
-    symlink /dev/block/platform/bootdevice/by-name/logo /dev/logo
 
     # Mount cgroup mount point for cpu accounting
     mount cgroup none /acct cpuacct
@@ -231,12 +197,6 @@ on init
     # set fwmark on accepted sockets
     write /proc/sys/net/ipv4/tcp_fwmark_accept 1
 
-#INTERNAL_START
-    symlink /sdcard /mnt/sdcard
-
-    mkdir /mnt/cd-rom 0000 system system
-#INTERNAL_END
-
     # enable armv8_deprecated instruction hooks
     write /proc/sys/abi/swp 1
     # Linux's execveat() syscall may construct paths containing /dev/fd
@@ -274,7 +234,6 @@ on firmware_mounts_complete
 
 # Mount filesystems and start core system services.
 on late-init
-    write /proc/bootprof "INIT:late-init"
 
     trigger early-fs
 
@@ -339,15 +298,9 @@ on fs
     write /config/usb_gadget/g1/configs/b.1/MaxPower 500
     symlink /config/usb_gadget/g1/configs/b.1 /config/usb_gadget/g1/os_desc/b.1
 
-    write /proc/bootprof "INIT:fs"
-#INTERNAL_START
-    write /proc/bootprof "INIT:Mount_START"
     mount_all /vendor/etc/fstab.mt6768 --early
-    write /proc/bootprof "INIT:Mount_END"
-#INTERNAL_END
 
 on post-fs
-    write /proc/bootprof "INIT:post-fs"
     start logd
     start keyinstall-1-0
     start light-hal-2-0
@@ -390,7 +343,6 @@ on post-fs
     # create the lost+found directories, so as to enforce our permissions
     mkdir /cache/lost+found 0770 root root
 
-#INTERNAL_START
     chown system system /mnt/vendor/protect_f
     chmod 0770 /mnt/vendor/protect_f
 
@@ -406,8 +358,6 @@ on post-fs
     mkdir /mnt/vendor/nvdata/media 0771 media audio
     restorecon_recursive /mnt/vendor/nvdata
 
-#INTERNAL_END
-
 on late-fs
     wait_for_prop hwservicemanager.ready "true"
     start vendor.keymaster-3-0
@@ -420,9 +370,6 @@ on late-fs
     mount_all /vendor/etc/fstab.mt6768 --late
 
 on post-fs-data
-    write /proc/bootprof "INIT:post-fs-data"
-
-#INTERNAL_START
     # WiFi
     mkdir /data/misc/wifi 0770 system wifi
     mkdir /data/misc/wifi/sockets 0770 system wifi
@@ -442,7 +389,6 @@ on post-fs-data
     exec /vendor/etc/partition_permission.sh
 
     chmod 0666 /dev/exm0
-#INTERNAL_END
 
 # It is recommended to put unnecessary data/ initialization from post-fs-data
 # to start-zygote in device's init.rc to unblock zygote start.
@@ -468,8 +414,6 @@ on zygote-start && property:ro.crypto.state=encrypted && property:ro.crypto.type
     start zygote_secondary
 
 on boot
-    write /proc/bootprof "INIT:boot"
-
     # For backlight
     chmod 0664 /sys/class/leds/lcd-backlight/brightness
     chown system system /sys/class/leds/lcd-backlight/brightness
@@ -479,9 +423,7 @@ on boot
     hostname localhost
     domainname localdomain
 
-#INTERNAL_START
     class_start default
-#INTERNAL_END
 
     # Start standard binderized HAL daemons
     class_start hal
@@ -493,7 +435,7 @@ on boot
     chown system radio /dev/ttyGS3
     chmod 0660 /dev/ttyGS3
     setprop sys.usb.configfs 1
-	setprop sys.usb.ffs.aio_compat 0
+    setprop sys.usb.ffs.aio_compat 0
 
 on nonencrypted
     class_start main
@@ -594,12 +536,6 @@ service adbd /apex/com.android.adbd/bin/adbd --root_seclabel=u:r:su:s0
     override
     seclabel u:r:adbd:s0
 
-#INTERNAL_START
-service emdlogger1 /system/system_ext/bin/emdlogger1
-    class main
-    user shell
-    group system shell radio sdcard_rw inet sdcard_r media_rw
-
 service meta_tst /vendor/bin/meta_tst
     group radio system wifi audio bluetooth media gps
     user radio system wifi
@@ -622,14 +558,12 @@ service fuelgauged /vendor/bin/fuelgauged
 
 #META+ADB
 on property:ro.boot.usbconfig=0 && property:sys.usb.configfs=1
-    write /proc/bootprof "INIT:start adbd"
     start adbd
 
     # Generate linker config based on apex mounted in bootstrap namespace
     update_linker_config
 
 on property:sys.usb.ffs.ready=1 && property:ro.boot.usbconfig=0 && property:sys.usb.configfs=1
-    write /proc/bootprof "INIT:on property:ro.boot.usbconfig=0"
     write /config/usb_gadget/g1/UDC "none"
     write /config/usb_gadget/g1/strings/0x409/serialnumber ${ro.serialno}
     write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "adb_acm"
@@ -640,7 +574,6 @@ on property:sys.usb.ffs.ready=1 && property:ro.boot.usbconfig=0 && property:sys.
 
 #META, move this to kernel driver
 on property:ro.boot.usbconfig=1 && property:sys.usb.configfs=1
-    write /proc/bootprof "INIT:on property:ro.boot.usbconfig 1"
     #write /config/usb_gadget/g1/UDC "none"
     #write /config/usb_gadget/g1/strings/0x409/serialnumber ""
     #write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "acm"
@@ -651,7 +584,6 @@ on property:ro.boot.usbconfig=1 && property:sys.usb.configfs=1
 
 #META+ELT, move this to kernel driver
 on property:ro.boot.usbconfig=2 && property:sys.usb.configfs=1
-    write /proc/bootprof "INIT:on property:ro.boot.usbconfig 2"
     setprop vendor.usb.acm_idx 1,4
     #write /config/usb_gadget/g1/UDC "none"
     #write /config/usb_gadget/g1/strings/0x409/serialnumber $ro.serialno
@@ -664,14 +596,12 @@ on property:ro.boot.usbconfig=2 && property:sys.usb.configfs=1
 
 #META+ELT+ADB
 on property:ro.boot.usbconfig=3 && property:sys.usb.configfs=1
-    write /proc/bootprof "INIT:start adbd"
     start adbd
 
     # Generate linker config based on apex mounted in bootstrap namespace
     update_linker_config
 
 on property:sys.usb.ffs.ready=1 && property:ro.boot.usbconfig=3 && property:sys.usb.configfs=1
-    write /proc/bootprof "INIT:on property:ro.boot.usbconfig 3"
     write /config/usb_gadget/g1/UDC "none"
     write /config/usb_gadget/g1/strings/0x409/serialnumber ${ro.serialno}
     write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "meta_elt_adb"
@@ -683,5 +613,3 @@ on property:sys.usb.ffs.ready=1 && property:ro.boot.usbconfig=3 && property:sys.
     symlink /config/usb_gadget/g1/functions/acm.gs3 /config/usb_gadget/g1/configs/b.1/f4
     write /config/usb_gadget/g1/UDC "musb-hdrc"
     setprop vendor.usb.acm_idx 1,4
-
-#INTERNAL_END

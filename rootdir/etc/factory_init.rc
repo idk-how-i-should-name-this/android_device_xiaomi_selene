@@ -8,36 +8,20 @@ import vendor/etc/init/hw/factory_init.connectivity.rc
 import /init.environ.rc
 import /vendor/etc/init/trustonic.rc
 import vendor/etc/init/hw/init.nvdata.rc
-##microtrust start
 import /vendor/etc/init/microtrust.rc
 import /system/etc/init/android.hidl.allocator@1.0-service.rc
 import /vendor/etc/init/vendor.microtrust.hardware.capi@2.0-service.rc
 import /vendor/etc/init/android.hardware.keymaster@4.0-service.beanpod.rc
 import /vendor/etc/init/microtrust.bp_kmsetkey_ca.rc
 import /vendor/etc/init/vendor.microtrust.hardware.thh@2.0-service.rc
-##microtrust end
-import /vendor/etc/init/trustkernel.rc
 import /system/etc/init/update_verifier.rc
-import /vendor/etc/init/android.hardware.boot@1.2-service.rc
-import /vendor/etc/init/android.hardware.boot@1.2-service-lazy.rc
-import /vendor/etc/init/vendor.mediatek.hardware.mtkpower@1.0-service.rc
-
-#NFC
-import /vendor/etc/init/hw/init.stnfc.rc
-
-#copy from system/etc for APEX
 import /system/etc/init/apexd.rc
-import /system/etc/init/art_apex_boot_integrity.rc
-
 import /system/etc/init/vold.rc
-
 import /vendor/etc/init/hw/factory_init.project.rc
 import /system/etc/init/servicemanager.rc
 import /system/etc/init/hwservicemanager.rc
 import /system/etc/init/android.hidl.allocator@1.0-service.rc
-import /vendor/etc/init/android.hardware.boot@1.2-service.rc
 import vendor/etc/init/hw/multi_init.rc
-
 
 on early-init
     # Set init and its forked children's oom_adj.
@@ -51,7 +35,6 @@ on early-init
 
     # Set the security context of /postinstall if present.
     restorecon /postinstall
-
 
     # Set up linker config subdirectories based on mount namespaces
     mkdir /linkerconfig/bootstrap 0755
@@ -68,26 +51,17 @@ on early-init
 
     start ueventd
 
-
     # Run apexd-bootstrap so that APEXes that provide critical libraries
     # become available. Note that this is executed as exec_start to ensure that
     # the libraries are available to the processes started after this statement.
     exec_start apexd-bootstrap
 
-#INTERNAL_START
-    mount debugfs debugfs /sys/kernel/debug
-    chmod 0755 /sys/kernel/debug
-#INTERNAL_END
-
 on init
-
-sysclktz 0
+    sysclktz 0
 
     # Mix device-specific information into the entropy pool
     copy /proc/cmdline /dev/urandom
     copy /default.prop /dev/urandom
-
-    write /proc/bootprof "INIT: on init start"
 
     # Backward compatibility.
     symlink /system/bin /bin
@@ -98,18 +72,6 @@ sysclktz 0
 
     # Link /vendor to /system/vendor for devices without a vendor partition.
     symlink /system/vendor /vendor
-
-# Temp Backward compatibility
-    symlink /dev/block/platform/bootdevice/by-name/boot /dev/bootimg
-    symlink /dev/block/platform/bootdevice/by-name/recovery /dev/recovery
-    symlink /dev/block/platform/bootdevice/by-name/secro  /dev/sec_ro
-    symlink /dev/block/platform/bootdevice/by-name/kb /dev/kb
-    symlink /dev/block/platform/bootdevice/by-name/dkb /dev/dkb
-    symlink /dev/block/platform/bootdevice/by-name/seccfg /dev/seccfg
-    symlink /dev/block/platform/bootdevice/by-name/proinfo /dev/pro_info
-    symlink /dev/block/platform/bootdevice/by-name/nvram /dev/nvram
-    symlink /dev/block/platform/bootdevice/by-name/para /dev/misc
-    symlink /dev/block/platform/bootdevice/by-name/logo /dev/logo
 
     # Mount cgroup mount point for cpu accounting
     mount cgroup none /acct cpuacct
@@ -240,16 +202,11 @@ sysclktz 0
     write /proc/sys/net/ipv4/conf/all/accept_redirects 0
     write /proc/sys/net/ipv6/conf/all/accept_redirects 0
 
-    #INTERNAL_START
     mkdir /mnt/vendor/protect_f 0771 system system
     mkdir /mnt/vendor/protect_s 0771 system system
-    symlink /sdcard /mnt/sdcard
     #Create nvdata mount point
     mkdir /mnt/vendor/nvdata 0771 system system
     mkdir /mnt/vendor/nvcfg 0771 system system
-
-    #Create CIP mount point
-    mkdir /custom
 
     mkdir /mnt/cd-rom 0000 system system
     #INTERNAL_END
@@ -351,11 +308,7 @@ on fs
     symlink /config/usb_gadget/g1/configs/b.1 /config/usb_gadget/g1/os_desc/b.1
     mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
 
-#INTERNAL_START
-    write /proc/bootprof "INIT:Mount_START"
     mount_all /vendor/etc/fstab.mt6768 --early
-    write /proc/bootprof "INIT:Mount_END"
-#INTERNAL_END
 # mount different fs end
 
 on post-fs
@@ -377,9 +330,6 @@ on post-fs
     # Make sure /sys/kernel/debug (if present) is labeled properly
     # Note that tracefs may be mounted under debug, so we need to cross filesystems
     restorecon --recursive --cross-filesystems /sys/kernel/debug
-
-    # Support legacy paths
-    symlink /sdcard /storage/sdcard0
 
     chown system system /system/data
     mkdir /system/cache 0770 system cache
@@ -412,7 +362,6 @@ on post-fs
     # create the lost+found directories, so as to enforce our permissions
     mkdir /cache/lost+found 0770 root root
 
-#INTERNAL_START
     mkdir /cache/recovery 0770 system system
     chown system system /mnt/vendor/protect_f
     chmod 0770 /mnt/vendor/protect_f
@@ -429,8 +378,6 @@ on post-fs
     mkdir /mnt/vendor/nvdata/media 0771 media audio
     restorecon_recursive /mnt/vendor/nvdata
 
-#INTERNAL_END
-
 on late-fs
     wait_for_prop hwservicemanager.ready "true"
     start vendor.keymaster-3-0
@@ -443,10 +390,8 @@ on late-fs
     mount_all /vendor/etc/fstab.mt6768 --late
 
 on post-fs-data
-    write /proc/bootprof "INIT:post-fs-data"
-
-	#Thermal
-	mkdir /data/.tp/ 0775 system system
+    #Thermal
+    mkdir /data/.tp/ 0775 system system
 
     # symlink to bugreport storage location
     rm /data/bugreports
@@ -478,19 +423,12 @@ on post-fs-data
     chmod 0440 /dev/devmap
     chown root system /dev/devmap
 
-
-
     #change partition permission
     exec /vendor/etc/partition_permission.sh
-#INTERNAL_START
-#SeLinux
     mkdir /data/ccci_cfg 0770 system radio
     restorecon /data/ccci_cfg
     restorecon_recursive /mnt/vendor/protect_f
     restorecon_recursive /mnt/vendor/protect_s
-
-## Custom pos-fs area (START)
-# Please add custom fs operation below
 
     # Touch Panel
     chown root diag /sys/module/tpd_setting/parameters/tpd_calmat
@@ -531,7 +469,6 @@ on post-fs-data
     #VideoCodec
     chmod 0666 /dev/Vcodec
 
-
     mkdir /data/amit/
 
     # GPIO
@@ -541,9 +478,6 @@ on post-fs-data
 
     #NFC
     rm /data/mtknfc_server
-
-## Custom pos_fs area (END)
-#INTERNAL_END
 
     # Separate location for storing security policy files on data
     mkdir /data/security 0711 system system
@@ -573,7 +507,7 @@ on zygote-start && property:ro.crypto.state=encrypted && property:ro.crypto.type
 
 on boot
     setprop sys.usb.configfs 1
-	setprop sys.usb.ffs.aio_compat 0
+    setprop sys.usb.ffs.aio_compat 0
     setprop vendor.usb.clear boot
 
     # TTY
@@ -601,15 +535,13 @@ on boot
     # Power Manager
     write /sys/power/pm_freeze_timeout 2000
 
-# basic network init
+    # basic network init
     ifup lo
     hostname localhost
     domainname localdomain
 
-    #INTERNAL_START
     # Start default class, this line is very important!!
     class_start default
-    #INTERNAL_END
 
     # Start standard binderized HAL daemons
     class_start hal
@@ -676,6 +608,7 @@ on encrypt
     setprop vendor.crypto.fake_encrypt 1
     setprop vold.post_fs_data_done 0
     trigger post-fs-data
+
 on property:vendor.crypto.fake_encrypt=1 && property:vold.post_fs_data_done=1
     trigger load_persist_props_action
     # setprop ro.crypto.state unencrypted
@@ -719,15 +652,10 @@ service adbd /apex/com.android.adbd/bin/adbd --root_seclabel=u:r:su:s0
     override
     seclabel u:r:adbd:s0
 
-#INTERNAL_START
-## Custom service area (START)
-# Please add custom service below
-
 service thermal_manager /vendor/bin/thermal_manager
     user root
-	group system
+    group system
     oneshot
-
 
 service vendor.ccci_fsd /vendor/bin/ccci_fsd 0
     user radio
@@ -769,62 +697,6 @@ service fuelgauged /vendor/bin/fuelgauged
     class main
     user system
     group system
-
-service mdlogger /system/bin/mdlogger
-    class main
-    user shell
-    group shell system radio sdcard_rw inet
-    disabled
-    oneshot
-
-service dualmdlogger /system/bin/dualmdlogger
-    class main
-    user shell
-    group shell system radio sdcard_rw inet
-    disabled
-    oneshot
-
-service factory_no_image /vendor/bin/factory
-    user root
-    group radio system wifi media gps audio bluetooth wakelock nfc
-    capabilities BLOCK_SUSPEND NET_RAW NET_ADMIN SYS_ADMIN SYS_BOOT
-
-service emdlogger1 /system/system_ext/bin/emdlogger1
-    class main
-    user shell
-    group system shell radio sdcard_rw inet sdcard_r media_rw
-    disabled
-    oneshot
-
-service emdlogger2 /system/bin/emdlogger2
-    class main
-    user shell
-    group system shell radio sdcard_rw inet sdcard_r media_rw
-    disabled
-    oneshot
-
-service emdlogger3 /system/bin/emdlogger3
-    class main
-    user shell
-    group system shell radio sdcard_rw inet sdcard_r media_rw
-    disabled
-    oneshot
-
-service emdlogger5 /system/bin/emdlogger5
-    class main
-    user shell
-    group system shell radio sdcard_rw inet sdcard_r media_rw
-    disabled
-    oneshot
-
-service emdlogger6 /system/bin/emdlogger6
-    class main
-    user shell
-    group system shell radio sdcard_rw inet sdcard_r media_rw
-    disabled
-    oneshot
-
-## Custom service area (END)
 
 on property:vendor.usb.clear=1 && property:sys.usb.configfs=1
     write /config/usb_gadget/g1/UDC "none"
@@ -923,5 +795,3 @@ property:vendor.usb.clear=2 && property:sys.usb.configfs=1
     symlink /config/usb_gadget/g1/functions/acm.gs3 /config/usb_gadget/g1/configs/b.1/f4
     write /config/usb_gadget/g1/UDC ${sys.usb.controller}
     setprop vendor.usb.clear 0
-
-#INTERNAL_END
