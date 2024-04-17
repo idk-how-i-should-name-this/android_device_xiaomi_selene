@@ -546,11 +546,6 @@ service nvram_daemon /vendor/bin/nvram_daemon
     group system
     oneshot
 
-service wlan_assistant /vendor/bin/wlan_assistant
-    class main
-    user wifi
-    group system gps inet
-
 service fuelgauged /vendor/bin/fuelgauged
     class main
     user system

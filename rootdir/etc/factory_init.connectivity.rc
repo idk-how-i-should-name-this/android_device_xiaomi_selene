@@ -28,11 +28,6 @@ service wmt_launcher /vendor/bin/wmt_launcher -p /vendor/firmware/
     user system
     group system
 
-service wlan_assistant /vendor/bin/wlan_assistant
-    class main
-    user wifi
-    group system gps inet
-
 # load wifi chrdev driver and wlan driver after wmt_loader finish
 on property:vendor.connsys.driver.ready=yes
     start wlan_assistant
