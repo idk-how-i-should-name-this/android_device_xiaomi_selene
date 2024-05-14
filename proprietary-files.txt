@@ -1,4 +1,4 @@
-# unpinned blobs from selene-user 11 RP1A.200720.011 V12.5.26.0.RKUEUXM release-keys
+# unpinned blobs from selene-user 11 RP1A.200720.011 V12.5.19.0.RKUMIXM release-keys
 
 # Audio
 vendor/lib/libaudiocompensationfilterc.so
@@ -398,7 +398,7 @@ lib64/libmtk_vt_wrapper.so
 lib64/libmtkavenhancements.so
 lib64/libvcodec_cap.so
 lib64/libvcodec_capenc.so
--priv-app/ImsService/ImsService.apk|7b3f0eb10ff1915c5356b0666f2272017a71c507
+-priv-app/ImsService/ImsService.apk|2aa09d27a75fda3b32af4d2579d430e26f00f9c7
 system_ext/lib/vendor.mediatek.hardware.mtkradioex@1.0.so
 system_ext/lib/vendor.mediatek.hardware.videotelephony@1.0.so
 system_ext/lib64/vendor.mediatek.hardware.dmc@1.1.so
